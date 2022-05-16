@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WkENi6rut4I5J0SVPfCsDzlpT8CD+foMvsqpRpdAS2zglFJTcbTu1aA+e5M86Ga26mVvGKX/P9IMeeOfHgK+lg==",
+  "success": true,
+  "projectFilePath": "D:\\GitDownLoad\\micro_cc\\FirstIonideProject\\FirstIonideProject.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\niminjian\\.nuget\\packages\\fsharp.core\\6.0.2\\fsharp.core.6.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
