@@ -5,24 +5,37 @@
    Must precede Interp.fs, Comp.fs and Contcomp.fs in Solution Explorer
  *)
 
+// 定义了变量描述、函数和类型的构造方法
 module Absyn
 
 // 基本类型
 // 注意，数组、指针是递归类型
 // 这里没有函数类型，注意与上次课的 MicroML 对比
+// 这里使用的是显式类型函数式语言，所有变量都需要写出定义
+// typ 是 某个`绑定值`在运行时可以具备的类型
 type typ =
   | TypI                             (* Type int                    *)
   | TypC                             (* Type char                   *)
-  | TypA of typ * int option         (* Array type                  *)
+  | TypA of typ * int option         (* Array type，注意定义数组类型时要指明存储的变量类型*)
   | TypP of typ                      (* Pointer type                *)
   | TypS
   | TypF
   | TypB
   | TypStruct of string
 
-and expr =                           // 表达式，右值                                                
+
+(*Micro实现解释器*)
+(*各种构造器的构建*)
+(*
+  注意这里对左值表达式与右值表达式的构建，右值是常规值，左值是数字
+  大量的运算符都是右值表达式，左值表达式中包含了一些特殊操作，我们在这主要定义了变量访问符、指针引用符、数组下标符
+*)
+
+and expr =                           // 右值表达式                                            
   | Access of access                 (* x    or  *p    or  a[e]     *) //访问左值（右值）
   | Assign of access * expr          (* x=e  or  *p=e  or  a[e]=e   *)
+
+  // 基本运算表达式的定义，加、减、乘、除、取余
   // | PlusAssign of access * expr      (* x+=e or  *p+=e or  a[e]+=e  *)
   // | MinusAssign of access * expr     (* x-=e or  *p-=e or  a[e]-=e  *)
   // | TimesAssign of access * expr     (* x*=e or  *p*=e or  a[e]*=e  *)
