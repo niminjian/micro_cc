@@ -1,3 +1,14 @@
+(*
+词法分析扫描阶段，扫描过程中可能出现的错误，称为“词法错误”，包括：
+1.遇到不在语言字母表中的字符
+2.一个字或一行中的字符太多
+3.未封闭的字符或字符串
+4.注释未合法结束
+*)
+
+
+// F# 通过在每个文件的第1行引入 module 关键字指定模块
+// 注意模块名与文件名往往要保持一致
 module CLex
 # 1 "CLex.fsl"
  
@@ -5,7 +16,6 @@ module CLex
     Lexer specification for micro-C, a small imperative language
   *)
 
-// module CLex = 
   
 open FSharp.Text.Lexing
 open CPar  // Token 的定义位于语法分析模块中
@@ -14,8 +24,15 @@ open CPar  // Token 的定义位于语法分析模块中
 let lexemeAsString lexbuf = 
     LexBuffer<char>.LexemeString lexbuf
 
+(* let: value and function declaration *)
 // 进制转换函数
 let bin2Dec value=
+    (*rec关键词表示递归函数调用*)
+    (*rec关键字，函数定义可包括自身的函数名*)
+    (*通过|进行模式匹配，注意在模式匹配过程中，每个模式只允许出现一次*)
+    (*下划线（_）通配符，匹配任何东西，作为默认值用，在模式匹配中往往放在最后*)
+    (*when关键字允许您添加guard表达式,指定匹配条件：*)
+    (*::表示列表操作*)
     let rec binaryToList value n =
         match value%10 with
         | _ when value%10 >= 0 && value%10 < 2 -> if value=0 then n else binaryToList (value/10) ((value%10)::n)
@@ -27,11 +44,13 @@ let bin2Dec value=
         match xs with
         | []-> 0
         | x::xr->1 + len xr
-    let rec eval (n: int list) =
+    let rec eval (n: int list) = // 表达式求值函数
         match n with
         | [] -> 0
         | xr::yr -> xr * pow (len yr) + eval yr
-    eval (binaryToList value [])
+    eval (binaryToList value []) // 将转化为二进制的传入求值函数中进行计算
+
+
 let oct2Dec value=
     let rec octalToList value n =
         match value%10 with
