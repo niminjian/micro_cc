@@ -165,6 +165,8 @@ let cEscape s =
     | _      -> failwith "Lexer error: impossible C escape" // 如果不匹配，则判断不在转义序列中
 
 # 132 "CLex.fs"
+// 十六位的无符号整型数组
+// 暂不明白这里定义多种状态的原因，或许是和后面的Parse部分的解析有关
 let trans : uint16[] array = 
     [| 
     (* State 0 *)
