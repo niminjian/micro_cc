@@ -2,7 +2,7 @@
 
 # [**实 验 报 告**]
 
-![zucc](D:\GitDownLoad\micro_c\README.assets\zucc.png)
+![zucc](README.assets\zucc.png)
 
 - 课程名称:编程语言原理与编译
 - 实验项目:期末大作业
