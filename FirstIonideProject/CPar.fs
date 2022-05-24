@@ -21,9 +21,6 @@ open Absyn
 let compose1 f (g, s) = ((fun x -> g(f(x))), s)
 let nl = CstI 10 //  \n 的 ASCII 码
 
-// let fst  (a, _, _) = a
-// let snd (_, b, _) = b
-// let thd  (_, _, c) = c
 let first  (a, _, _) = a
 let second (_, b, _) = b
 let third  (_, _, c) = c
@@ -108,7 +105,10 @@ type token =
   | NAME of (string)
   | CSTINT of (int)
   | CSTBOOL of (int)
+
+
 // This type is used to give symbolic names to token indexes, useful for error messages
+// 规定相关错误信息
 type tokenId = 
     | TOKEN_EOF
     | TOKEN_LPAR
@@ -188,7 +188,7 @@ type tokenId =
     | TOKEN_CSTBOOL
     | TOKEN_end_of_input
     | TOKEN_error
-// This type is used to give symbolic names to token indexes, useful for error messages
+// This type is used to give symbolic names to token indexes, useful for error messages，错误信息的构建
 type nonTerminalId = 
     | NONTERM__startMain
     | NONTERM_Main
@@ -224,6 +224,7 @@ type nonTerminalId =
     | NONTERM_Type
 
 // This function maps tokens to integer indexes
+// 给功能函数指定编号
 let tagOfToken (t:token) = 
   match t with
   | EOF  -> 0 
