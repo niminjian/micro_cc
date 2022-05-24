@@ -44,13 +44,11 @@ microC的设计更是令人惊叹，我们最终选择了它作为我们的大�
   ·第一部分声明需要使用的变量(词元)，声明变量后还需要声明优先级
   ·第二部分定义语法规则(文法)包括 : statement ,expression ,function ,main ,vardeclare variabledescirbe ,type ,const这些基本元素
   ·表示识别到前面定义的这些大写字母组成的符号串后,怎么处理这些规则
-
 - `CPas.fsy`: 语义分析(推算程序的含义)
-  
 - `Parse.fs`: 语法解析器（从文件或字符串中获取抽象语法树）
-
 - `Interp.fs`: 解释器
-  
+- `Comp.fs`：编译器
+- 
 
 
 ## 6.测试方案
