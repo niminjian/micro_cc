@@ -1,18 +1,3 @@
-(*
-词法分析扫描阶段，扫描过程中可能出现的错误，称为“词法错误”，包括：
-1.遇到不在语言字母表中的字符
-2.一个字或一行中的字符太多
-3.未封闭的字符或字符串
-4.注释未合法结束
-*)
-
-(*
-  CLex 中定义基本的关键字、标识符、常量、使用大写字母表示程序读到这个符号就会转换为我们定义的大写字母，然后就给 CPar 处理
-  我们在这里主要构建了八进制位和十六进制的转化函数
-*)
-
-// F# 通过在每个文件的第1行引入 module 关键字指定模块
-// 注意模块名与文件名往往要保持一致
 module CLex
 # 1 "CLex.fsl"
  
@@ -20,6 +5,7 @@ module CLex
     Lexer specification for micro-C, a small imperative language
   *)
 
+// module CLex = 
   
 open FSharp.Text.Lexing
 open CPar  // Token 的定义位于语法分析模块中
@@ -28,15 +14,8 @@ open CPar  // Token 的定义位于语法分析模块中
 let lexemeAsString lexbuf = 
     LexBuffer<char>.LexemeString lexbuf
 
-(* let: value and function declaration *)
 // 进制转换函数
 let bin2Dec value=
-    (*rec关键词表示递归函数调用*)
-    (*rec关键字，函数定义可包括自身的函数名*)
-    (*通过|进行模式匹配，注意在模式匹配过程中，每个模式只允许出现一次*)
-    (*下划线（_）通配符，匹配任何东西，作为默认值用，在模式匹配中往往放在最后*)
-    (*when关键字允许您添加guard表达式,指定匹配条件：*)
-    (*::表示列表操作*)
     let rec binaryToList value n =
         match value%10 with
         | _ when value%10 >= 0 && value%10 < 2 -> if value=0 then n else binaryToList (value/10) ((value%10)::n)
@@ -48,18 +27,13 @@ let bin2Dec value=
         match xs with
         | []-> 0
         | x::xr->1 + len xr
-    let rec eval (n: int list) = // 表达式求值函数
+    let rec eval (n: int list) =
         match n with
         | [] -> 0
         | xr::yr -> xr * pow (len yr) + eval yr
-    eval (binaryToList value []) // 将转化为二进制的传入求值函数中进行计算
-
-
-// 将八进位数转化为十进位数
+    eval (binaryToList value [])
 let oct2Dec value=
-    // 这里使用了多个递归函数的互相调用
     let rec octalToList value n =
-        // 使用match进行类型检查，若满足把八进位数转化的要求，则递归，若不满足，则跳出
         match value%10 with
         | _ when value%10 >= 0 && value%10 < 8 -> if value=0 then n else octalToList (value/10) ((value%10)::n)
         | _        -> failwith "Does not conform to octal number type."
@@ -67,7 +41,6 @@ let oct2Dec value=
         if n=0 then 1
         else 8 * (pow (n-1))
     let rec len xs =
-        // 注意这里使用标识符进行绑定时，将匹配的值绑定到该标识符
         match xs with
         | []-> 0
         | x::xr->1 + len xr
@@ -76,20 +49,17 @@ let oct2Dec value=
         | [] -> 0
         | xr::yr -> xr * pow (len yr) + eval yr
     eval (octalToList value [])
-
-// 将十六进位数转化为十进位数
 let hex2Dec value = 
     let rec hexaToList (str:string)  = 
         if(str.Length <= 0) then []
         else
-            // 我们这里同时允许十六进制位中同时含有小写和大写字母
             match str.[0] with
             | _ when str.[0] >='a' && str.[0] <= 'f'    -> (int str.[0]) - ( int 'a') + 10::hexaToList str.[1..str.Length - 1]
             | _ when str.[0] >= 'A' && str.[0] <= 'F'   -> (int str.[0]) - ( int 'A') + 10::hexaToList str.[1..str.Length - 1]
             | _ when str.[0] >= '0' && str.[0] <= '9'   -> (int str.[0]) - ( int '0') ::hexaToList str.[1..str.Length - 1]
             | _                                         -> failwith "Does not conform to hex number type."
     let result = hexaToList (value)
-    let mutable num = 0; // 有些不理解这里为什么要定义为mutable类型
+    let mutable num = 0;
     List.iter(fun i -> num <- num*16 + i)result
     num
 
@@ -98,7 +68,6 @@ let hex2Dec value =
 (* Scan keywords as identifiers and use this function to distinguish them. *)
 (* If the set of keywords is large, use a hashtable instead.               *)
 // keyword 处理关键字与标识符的辅助函数
-// 关键字的定义
 let keyword s =   
     match s with
     | "Abs"     -> ABS 
@@ -135,7 +104,6 @@ let keyword s =
     | _         -> NAME s   // 缺省情况，是标识符的名字，如 函数名，变量名等
                             // 当所有的关键字没有匹配成功时，则当成标识符
 
-// 匹配是否为二进制、八进制或十六进制
 let binHexOct (s:string) =
     match s.[0..1] with
     | "0B"
@@ -159,14 +127,9 @@ let cEscape s =
     | "\\v"  -> '\011'
     | "\\f"  -> '\012'
     | "\\r"  -> '\r'
-    | "\\'"  -> '039'
-    | "\\?"  -> '063'
-    | "\\0"  -> '000'
-    | _      -> failwith "Lexer error: impossible C escape" // 如果不匹配，则判断不在转义序列中
+    | _      -> failwith "Lexer error: impossible C escape"
 
 # 132 "CLex.fs"
-// 十六位的无符号整型数组
-// 暂不明白这里定义多种状态的原因，或许是和后面的Parse部分的解析有关
 let trans : uint16[] array = 
     [| 
     (* State 0 *)
