@@ -42,7 +42,6 @@ gcc machine.c -o machine
 dotnet restore  microc.fsproj #恢复项目的依赖项和工具
 dotnet clean  microc.fsproj #清除项目输出
 dotnet build  microc.fsproj #生成项目及其所有依赖项
-
 dotnet run --project microc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表示输入的数据，下同
 .\machine.exe .\example\xxx.out xxx  # 执行（通过虚拟机执行）
 
@@ -50,6 +49,17 @@ dotnet run --project microc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表�
 已弃用使用缩写“-p”来代表“--project”。请使用“--project”。
 framework 'Microsoft.NETCore.App', version '5.0.0' (x64)
 ###
+```
+
+## 优化
+
+```shell
+#microc-->microcc
+dotnet restore  microcc.fsproj
+dotnet clean  microcc.fsproj
+dotnet build  microcc.fsproj
+dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表示输入的数据，下同
+.\machine.exe .\example\xxx.out xxx  # 执行（通过虚拟机执行）
 ```
 
 
