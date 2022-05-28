@@ -6,7 +6,7 @@ let run = Interp.run
 let argv = System.Environment.GetCommandLineArgs()
 
 let _ =
-    printf "Micro-C interpreter v 1.1.0 of 2021-5-19\n"
+    printf "Micro-C interpreter v 1.1.0 of 2022\n"
 
 let _ =
     let args = Array.filter ((<>) "-g") argv

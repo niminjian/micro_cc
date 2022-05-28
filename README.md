@@ -88,28 +88,64 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 - `Machine.fs`：栈式虚拟机，machine.c
 - 
 
-# 6.测试方案
 
-## 6.1 词法功能
 
-### 6.1.1 注释表示方式
+# 6.相关命令
+
+## 解释器
+
+```
+dotnet restore  interpc.fsproj
+dotnet clean  interpc.fsproj
+dotnet build -v n interpc.fsproj
+dotnet run -p interpc.fsproj .\example\commentaryTest.c 
+```
+
+
+
+## 编译器
+
+```
+dotnet restore  microc.fsproj
+dotnet clean  microc.fsproj
+dotnet build  microc.fsproj  
+gcc machine.c -o machine  
+
+dotnet run -p microc.fsproj .\example\commentaryTest.c
+.\machine.exe .\example\commentaryTest.out 
+```
+
+
+
+## 查看中间过程
+
+
+
+
+
+# 7.测试方案
+
+## 7.1 词法功能
+
+### 7.1.1 注释表示方式
 
 - 实现注释表达方式  `//` 	`/* */`    `(* *)`
 
 - 测试样例 (commentaryTest.c)
 
   ```c
-  void main() {
-      int i = 5;
-      (*for (;i < 10; i++);*)
-      print(i);
+  void main()
+  {
+    int i = 5;
+    (*for (; i < 10; i++); *)
+        printf("%d", i);
   }
   ```
   
 - 测试结果
   解释：
   
-  ![1](.\README.assets\1.png)
+  ![](.\README.assets\interpreter\1.png)
   
   编译：
   
@@ -117,11 +153,63 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
   
   
 
+### 7.1.2 标识符定义
+
+- 标识符定义方式：允许_开头
+
+- 测试样例 (IdentifierDefinition.c)
+
+```
+void main()
+{
+  int _x = 1;
+  int _y = 2;
+  printf("%d\n", _x);
+  printf("%d", _y);
+}
+```
+
+- 测试结果
+
+  解释
+
+  ![2](.\README.assets\interpreter\2.png)
+
+
+
+### 7.1.3 进制转换
+
+- 进制转换：0b-二进制、0o-八进制、十进制、0x-十六进制
+
+- 测试样例 (RadixConversion.c)
+
+  ```
+  void main()
+  {
+    int x = 0b111;
+    int y = 0o111;
+    int z = 111;
+    int k = 0x111;
+    printf("%d\n", x);
+    printf("%d\n", y);
+    printf("%d\n", z);
+    printf("%d\n", k);
+  }
+  ```
+
+- 测试结果 
+
+  解释
+
+  ![3](.\README.assets\3.png)
+
+
+
 # 7.课程心得
 
 
 
-# 8.附录
+
 
 
 

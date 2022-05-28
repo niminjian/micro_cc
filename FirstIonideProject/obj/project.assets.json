@@ -225,19 +225,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\17423\\.nuget\\packages\\": {}
+    "C:\\Users\\niminjian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\ProjectGit\\micro_cc\\FirstIonideProject\\microc.fsproj",
-      "projectName": "microc",
-      "projectPath": "A:\\ProjectGit\\micro_cc\\FirstIonideProject\\microc.fsproj",
-      "packagesPath": "C:\\Users\\17423\\.nuget\\packages\\",
-      "outputPath": "A:\\ProjectGit\\micro_cc\\FirstIonideProject\\obj\\",
+      "projectUniqueName": "D:\\GitDownLoad\\micro_cc\\FirstIonideProject\\interpc.fsproj",
+      "projectName": "interpc",
+      "projectPath": "D:\\GitDownLoad\\micro_cc\\FirstIonideProject\\interpc.fsproj",
+      "packagesPath": "C:\\Users\\niminjian\\.nuget\\packages\\",
+      "outputPath": "D:\\GitDownLoad\\micro_cc\\FirstIonideProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\17423\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\niminjian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

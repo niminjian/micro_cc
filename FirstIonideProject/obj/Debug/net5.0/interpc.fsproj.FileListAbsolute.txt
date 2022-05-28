@@ -1,6 +1,3 @@
-D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.fsproj.AssemblyReference.cache
-D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.AssemblyInfoInputs.cache
-D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.AssemblyInfo.fs
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\interpc.exe
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\interpc.deps.json
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\interpc.runtimeconfig.json
@@ -22,6 +19,9 @@ D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\ru\FSharp.Core.resou
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\tr\FSharp.Core.resources.dll
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\zh-Hans\FSharp.Core.resources.dll
 D:\GitDownLoad\micro_cc\FirstIonideProject\bin\Debug\net5.0\zh-Hant\FSharp.Core.resources.dll
+D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.fsproj.AssemblyReference.cache
+D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.AssemblyInfoInputs.cache
+D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.AssemblyInfo.fs
 D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.fsproj.CopyComplete
 D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.dll
 D:\GitDownLoad\micro_cc\FirstIonideProject\obj\Debug\net5.0\interpc.pdb
