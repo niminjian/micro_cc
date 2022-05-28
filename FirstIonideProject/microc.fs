@@ -6,7 +6,7 @@ let argv = System.Environment.GetCommandLineArgs();;
 
 let args = Array.filter ((<>) "-g") argv
 
-let _ = printfn "Micro-C Stack VM compiler v 1.2.0 of 2021-5-12";;
+let _ = printfn "Micro-C Stack VM compiler v 1.2.0 of 2022";;
 
 let _ = 
    if args.Length > 1 then

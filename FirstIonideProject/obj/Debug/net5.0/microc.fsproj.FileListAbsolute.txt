@@ -1,6 +1,3 @@
-A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.fsproj.AssemblyReference.cache
-A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.AssemblyInfoInputs.cache
-A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.AssemblyInfo.fs
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\microc.exe
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\microc.deps.json
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\microc.runtimeconfig.json
@@ -22,6 +19,9 @@ A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\ru\FSharp.Core.resour
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\tr\FSharp.Core.resources.dll
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\zh-Hans\FSharp.Core.resources.dll
 A:\ProjectGit\micro_cc\FirstIonideProject\bin\Debug\net5.0\zh-Hant\FSharp.Core.resources.dll
+A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.fsproj.AssemblyReference.cache
+A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.AssemblyInfoInputs.cache
+A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.AssemblyInfo.fs
 A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.fsproj.CopyComplete
 A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.dll
 A:\ProjectGit\micro_cc\FirstIonideProject\obj\Debug\net5.0\microc.pdb

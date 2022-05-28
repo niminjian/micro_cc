@@ -73,7 +73,7 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 
 - `Absyn.fs`: 抽象语法树结构的定义，定义变量描述、函数和类型的构造方法
 - `CLex.fsl`: 词法定义(将输入分解成一个个独立的词法符号)
-  ·CLex 中定义基本的关键字、标识符、常量、进制转化函数、转移函数等，遇到对应字符会模式匹配到目标字符，然后就给 CPar 处理
+  + CLex 中定义基本的关键字、标识符、常量、进制转化函数、转移函数等，遇到对应字符会模式匹配到目标字符，然后就给 CPar 处理
 - `CPar.fsy`: 语法定义(分析程序的短语结构)
   + CPar 文件分为两部分
   + 第一部分声明需要使用的变量(词元)，声明变量后还需要声明优先级
@@ -83,7 +83,9 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 - `Parse.fs`: 语法解析器（从文件或字符串中获取抽象语法树）
 - `Interp.fs`: 解释器
 - `Comp.fs`：编译器(将高级语言翻译为低级语言)
-- 
+  - 相关：System.IO、Absyn.fs、Machine.fs、Debug.fs、Backend.fs、microc.fs、microc.fsproj
+
+- `Machine.fs`：栈式虚拟机，machine.c
 - 
 
 # 6.测试方案
@@ -111,7 +113,7 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
   
   编译：
   
-  ![]()
+  ![](.\README.assets\compile\1.png)
   
   
 
