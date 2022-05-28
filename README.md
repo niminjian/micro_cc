@@ -2,7 +2,7 @@
 
 # [**实 验 报 告**]
 
-![zucc](README.assets/zucc.png)
+![zucc](./README.assets/zucc.png)
 
 - 课程名称:编程语言原理与编译
 - 实验项目:期末大作业
@@ -149,17 +149,15 @@ dotnet run -p microc.fsproj .\example\commentaryTest.c
   
 - 测试结果
   解释：
-  
-<<<<<<< HEAD
-  ![1](README.assets/1.png)
-=======
-  ![](.\README.assets\interpreter\1.png)
->>>>>>> master
-  
+
+![1](./README.assets/1.png)
+
+![](./README.assets/interpreter/1.png)
+
   编译：
-  
-  ![](README.assets/compile/1.png)
-  
+
+![](./README.assets/compile/1.png)
+
   
 
 ### 7.1.2 标识符定义
