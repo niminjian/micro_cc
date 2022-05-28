@@ -2,7 +2,7 @@
 
 # [**实 验 报 告**]
 
-![zucc](README.assets\zucc.png)
+![zucc](README.assets/zucc.png)
 
 - 课程名称:编程语言原理与编译
 - 实验项目:期末大作业
@@ -60,6 +60,11 @@ dotnet clean  microcc.fsproj
 dotnet build  microcc.fsproj
 dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表示输入的数据，下同
 .\machine.exe .\example\xxx.out xxx  # 执行（通过虚拟机执行）
+```
+
+## 中间过程
+
+```
 ```
 
 
@@ -145,11 +150,15 @@ dotnet run -p microc.fsproj .\example\commentaryTest.c
 - 测试结果
   解释：
   
+<<<<<<< HEAD
+  ![1](README.assets/1.png)
+=======
   ![](.\README.assets\interpreter\1.png)
+>>>>>>> master
   
   编译：
   
-  ![](.\README.assets\compile\1.png)
+  ![](README.assets/compile/1.png)
   
   
 
