@@ -212,7 +212,100 @@ void main()
 
 
 
-# 7.课程心得
+
+
+## 7.2 语法功能
+
+### 7.2.1 for循环
+
+- 测试for的循环功能
+
+- 测试样例 (ForKeyWord.c)
+
+  ```
+  void main(int n)
+  {
+    int i = 0;
+    int j = 0;
+  
+    for (i = 0; i < n; i = i + 1)
+    {
+      printf("%d：", i);
+      for (j = 0; j < i; j = j + 1)
+      {
+        printf("%d ", j);
+      }
+      printf("\n");
+    }
+  }
+  ```
+
+- 测试结果
+
+  解释器
+
+  ![4](.\README.assets\4-16538785892761.png)
+
+
+
+### 7.2.2 do-while循环实现
+
+- 测试do-while的循环功能
+
+- 测试样例 (DoWhileKeyWord.c)
+
+  ```
+  void main(int n)
+  {
+    int x = 0;
+    do
+    {
+      x += 2;
+      printf("%d ", x);
+    } while (x < n);
+  }
+  ```
+
+- 测试结果
+
+  解释器
+
+  ![5](.\README.assets\5.png)
+
+
+
+### 7.2.3 switch-case判断
+
+- 测试switch-case的判断功能
+
+- 测试样例 (SwitchCaseKeyWord.c)
+
+  ```
+  void main(int n)
+  {
+    switch (n)
+    {
+    case 0:
+      printf("Cheslsea");
+    case 1:
+      printf("Liverpool");
+    default:
+      printf("Manchester City");
+    }
+  }
+  ```
+
+- 测试结果
+
+  解释器
+
+  ![6](.\README.assets\6.png)
+
+
+
+
+
+# 8.课程心得
 
 
 
