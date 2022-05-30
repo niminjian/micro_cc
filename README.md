@@ -65,8 +65,26 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 
 ## 中间过程
 
-```
+```shell
+###----------编译器----------
+-- dotnet fsi
+-- #r "nuget: FsLexYacc";;
+-- #load "Absyn.fs"  "CPar.fs" "CLex.fs" "Debug.fs" "Parse.fs" "Machine.fs" "Backend.fs" "Comp.fs" "ParseAndComp.fs";; 
+-- open ParseAndComp;;
+-- fromFile "example\xxx.c"
+-- compileToFile (fromFile "example\xxx.c") "xxx";; #有点问题
+-- #q;;
 
+###----------优化编译器----------
+-- dotnet fsi
+-- #r "nuget: FsLexYacc";;
+-- #load "Absyn.fs"  "CPar.fs" "CLex.fs" "Debug.fs" "Parse.fs" "Machine.fs" "Backend.fs" "Contcomp.fs" "ParseAndContcomp.fs";;
+-- open ParseAndContcomp;;
+#-----查看中间AST生成-----（抽象语法树）
+-- fromFile "example\xxx.c" 
+#优化编译虚拟指令序列
+-- contCompileToFile (fromFile "example\xxx.c") "xxx.out";;
+-- #q;;
 ```
 
 # 3.结构设计
@@ -85,9 +103,9 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 - `Interp.fs`: 解释器
 - `Comp.fs`：编译器(将高级语言翻译为低级语言)
   - 相关：System.IO、Absyn.fs、Machine.fs、Debug.fs、Backend.fs、microc.fs、microc.fsproj
-
 - `Machine.fs`：栈式虚拟机，machine.c
-- 
+- `Contcomp.fs`: 优化编译器
+- `example`:存放测试程序
 
 
 
@@ -117,11 +135,13 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 
 ![](./README.assets/interpreter/1.png)
 
-  编译：
+ 	 编译：
 
 ![](./README.assets/compile/1.png)
 
-  
+​	  中间过程：（中间过程用优化编译器测试，下同）![ast](./README.assets/ast/1.png)
+
+![seq](./README.assets/seq/1.png)
 
 ### 4.1.2 标识符定义
 
@@ -279,5 +299,85 @@ void main()
 
 ## 自评
 
-
+| 功能 | **解释器** | **编译器** | 编译器优化 | 自评分（1-5） | 测试文件 |
+| :--: | :--------: | :--------: | :--------: | :-----------: | :------: |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
+|      |            |            |            |               |          |
 
