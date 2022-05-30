@@ -7,7 +7,7 @@
 - 课程名称:编程语言原理与编译
 - 实验项目:期末大作业
 - 专业班级__计算机1901_
-- 学生学号_31904027_ 31903139_
+- 学生学号_ 31904027_ 31903139_
 - 学生姓名 倪敏建  许周毅
 - 实验指导教师:张芸
 
@@ -21,15 +21,16 @@
 
 ​	microC的设计更是令人惊叹，我们最终选择了它作为我们的大作业方向。
 
-
-
-# 2.语言材料
-
-
-
-#  3.语言手册
+#  2.语言手册
 
 ## 解释器
+
+```shell
+dotnet restore  interpc.fsproj
+dotnet clean  interpc.fsproj
+dotnet build -v n interpc.fsproj
+dotnet run -p interpc.fsproj .\example\commentaryTest.c 
+```
 
 ## 编译器
 
@@ -65,15 +66,10 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 ## 中间过程
 
 ```
+
 ```
 
-
-
-# 4.项目计划
-
-
-
-# 5.结构设计
+# 3.结构设计
 前端：由`F#`语言编写而成  
 
 - `Absyn.fs`: 抽象语法树结构的定义，定义变量描述、函数和类型的构造方法
@@ -95,44 +91,11 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 
 
 
-# 6.相关命令
+# 4.测试方案
 
-## 解释器
+## 4.1 词法功能
 
-```
-dotnet restore  interpc.fsproj
-dotnet clean  interpc.fsproj
-dotnet build -v n interpc.fsproj
-dotnet run -p interpc.fsproj .\example\commentaryTest.c 
-```
-
-
-
-## 编译器
-
-```
-dotnet restore  microc.fsproj
-dotnet clean  microc.fsproj
-dotnet build  microc.fsproj  
-gcc machine.c -o machine  
-
-dotnet run -p microc.fsproj .\example\commentaryTest.c
-.\machine.exe .\example\commentaryTest.out 
-```
-
-
-
-## 查看中间过程
-
-
-
-
-
-# 7.测试方案
-
-## 7.1 词法功能
-
-### 7.1.1 注释表示方式
+### 4.1.1 注释表示方式
 
 - 实现注释表达方式  `//` 	`/* */`    `(* *)`
 
@@ -160,7 +123,7 @@ dotnet run -p microc.fsproj .\example\commentaryTest.c
 
   
 
-### 7.1.2 标识符定义
+### 4.1.2 标识符定义
 
 - 标识符定义方式：允许_开头
 
@@ -184,7 +147,7 @@ void main()
 
 
 
-### 7.1.3 进制转换
+### 4.1.3 进制转换
 
 - 进制转换：0b-二进制、0o-八进制、十进制、0x-十六进制
 
@@ -212,11 +175,9 @@ void main()
 
 
 
+## 4.2 语法功能
 
-
-## 7.2 语法功能
-
-### 7.2.1 for循环
+### 4.2.1 for循环
 
 - 测试for的循环功能
 
@@ -248,7 +209,7 @@ void main()
 
 
 
-### 7.2.2 do-while循环实现
+### 4.2.2 do-while循环实现
 
 - 测试do-while的循环功能
 
@@ -274,7 +235,7 @@ void main()
 
 
 
-### 7.2.3 switch-case判断
+### 4.2.3 switch-case判断
 
 - 测试switch-case的判断功能
 
@@ -303,15 +264,20 @@ void main()
 
 
 
+# 5.课程心得
 
+# 6.附录
 
-# 8.课程心得
+## 分工
 
+| 姓名   | 学号     | 班级       | 任务                                     | 权重 |
+| ------ | -------- | ---------- | ---------------------------------------- | ---- |
+| 倪敏建 | 31904027 | 计算机1901 | 功能设计, 解释器，虚拟机，测试，报告撰写 | 0.95 |
+| 许周毅 | 31903139 | 计算机1901 | 功能设计, 编译器，虚拟机，测试，报告撰写 | 0.95 |
 
+## 日志
 
-
-
-
+## 自评
 
 
 
