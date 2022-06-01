@@ -129,17 +129,18 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
   ```
   
 - 测试结果
-  解释：
+
+解释：
 
 ![1](./README.assets/1.png)
 
 ![](./README.assets/interpreter/1.png)
 
- 	 编译：
+编译：
 
 ![](./README.assets/compile/1.png)
 
-​	  中间过程：（中间过程用优化编译器测试，下同）![ast](./README.assets/ast/1.png)
+中间过程：（中间过程用优化编译器测试，下同）![ast](./README.assets/ast/1.png)
 
 ![seq](./README.assets/seq/1.png)
 
@@ -161,11 +162,20 @@ void main()
 
 - 测试结果
 
-  解释
 
-  ![2](.\README.assets\interpreter\2.png)
+解释
 
+![2](.\README.assets\interpreter\2.png)
 
+编译：
+
+![](./README.assets/compile/2.png)
+
+中间过程：
+
+![ast](./README.assets/ast/2.png)
+
+![seq](./README.assets/seq/2.png)
 
 ### 4.1.3 进制转换
 
@@ -189,11 +199,20 @@ void main()
 
 - 测试结果 
 
-  解释
 
-  ![3](.\README.assets\3.png)
+解释
 
+![3](.\README.assets\3.png)
 
+编译：
+
+![](./README.assets/compile/3.png)
+
+中间过程：
+
+![ast](./README.assets/ast/3.png)
+
+![seq](./README.assets/seq/3.png)
 
 ## 4.2 语法功能
 
@@ -223,11 +242,20 @@ void main()
 
 - 测试结果
 
-  解释器
 
-  ![4](.\README.assets\4-16538785892761.png)
+解释器
 
+![4](.\README.assets\4-16538785892761.png)
 
+编译：
+
+![](./README.assets/compile/4.png)
+
+中间过程：
+
+![ast](./README.assets/ast/4.png)
+
+![seq](./README.assets/seq/4.png)
 
 ### 4.2.2 do-while循环实现
 
@@ -249,11 +277,20 @@ void main()
 
 - 测试结果
 
-  解释器
 
-  ![5](.\README.assets\5.png)
+解释器
 
+![5](.\README.assets\5.png)
 
+编译：
+
+![](./README.assets/compile/5.png)
+
+中间过程：
+
+![ast](./README.assets/ast/5.png)
+
+![seq](./README.assets/seq/5.png)
 
 ### 4.2.3 switch-case判断
 
@@ -278,11 +315,20 @@ void main()
 
 - 测试结果
 
-  解释器
 
-  ![6](.\README.assets\6.png)
+解释器
 
+![6](.\README.assets\6.png)
 
+编译：
+
+![](./README.assets/compile/6.png)
+
+中间过程：
+
+![ast](./README.assets/ast/6.png)
+
+![seq](./README.assets/seq/6.png)
 
 # 5.课程心得
 
