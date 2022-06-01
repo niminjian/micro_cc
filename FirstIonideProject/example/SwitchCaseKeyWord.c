@@ -3,10 +3,10 @@ void main(int n)
   switch (n)
   {
   case 0:
-    printf("Cheslsea");
+    print 0;
   case 1:
-    printf("Liverpool");
+    print 1;
   default:
-    printf("Manchester City");
+    print - 1;
   }
 }

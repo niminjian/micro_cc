@@ -124,7 +124,7 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
   {
     int i = 5;
     (*for (; i < 10; i++); *)
-        printf("%d", i);
+        printf i;
   }
   ```
   
@@ -190,10 +190,10 @@ void main()
     int y = 0o111;
     int z = 111;
     int k = 0x111;
-    printf("%d\n", x);
-    printf("%d\n", y);
-    printf("%d\n", z);
-    printf("%d\n", k);
+    print x;
+    print y;
+    print z;
+    print k;
   }
   ```
 
@@ -230,22 +230,21 @@ void main()
   
     for (i = 0; i < n; i = i + 1)
     {
-      printf("%d：", i);
+      print i;
       for (j = 0; j < i; j = j + 1)
       {
-        printf("%d ", j);
+        print j;
       }
-      printf("\n");
     }
   }
   ```
-
+  
 - 测试结果
 
 
 解释器
 
-![4](.\README.assets\4-16538785892761.png)
+![4](./README.assets/interpreter/4.png)
 
 编译：
 
@@ -270,7 +269,8 @@ void main()
     do
     {
       x += 2;
-      printf("%d ", x);
+      print x;
+      print " "
     } while (x < n);
   }
   ```
@@ -318,7 +318,7 @@ void main()
 
 解释器
 
-![6](.\README.assets\6.png)
+![6](.\README.assets\interpreter\6.png)
 
 编译：
 
@@ -331,6 +331,12 @@ void main()
 ![seq](./README.assets/seq/6.png)
 
 # 5.课程心得
+
+
+
+
+
+
 
 # 6.附录
 

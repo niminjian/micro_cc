@@ -41,18 +41,6 @@ type paramdecs = (typ * string) list
 (* 函数环境列表
   [("函数名", ([参数元组(类型,"名称")的列表],函数体AST)),....]
 
-  //main (i){
-  //  int r;
-  //    fac (i, &r);
-  //    print r;
-  // }
-  [ ("main",
-   ([(TypI, "i")],
-    Block
-      [Dec (TypI,"r");
-       Stmt (Expr (Call ("fac",[Access (AccVar "i"); Addr (AccVar "r")])));
-       Stmt (Expr (Prim1 ("printi",Access (AccVar "r"))))]))]
-
 函数环境 是 多态类型  'data env ---(string * 'data ) list 的一个 具体类型 ⭐⭐⭐
     类型变量 'data  具体化为  (paramdecs * stmt)
     (string * (paramdecs * stmt)) list
@@ -306,8 +294,7 @@ let rec exec stmt (locEnv: locEnv) (gloEnv: gloEnv) (structEnv: structEnv) (stor
         // failwith "return not implemented" // 解释器没有实现 return
         match e with
         | Some e1 -> 
-            let (res, store0) = eval e1 locEnv gloEnv structEnv store;
-            // printfn "%s" (store0.ToString())
+            let (res, store0) = eval e1 locEnv gloEnv structEnv store;            
             let store1 = store0.Add(-1, res);
             store1
         | None -> store
@@ -332,8 +319,7 @@ and eval e locEnv gloEnv structEnv store : int * store =
         if abs i > 100000000 then // float
             let bytes = System.BitConverter.GetBytes(int32(i))
             let v = System.BitConverter.ToSingle(bytes, 0)
-            let res = int(round(v))
-            // printf "welllll %d\n" res
+            let res = int(round(v))            
             (res, store1)
         else
             (i, store1)
@@ -344,8 +330,7 @@ and eval e locEnv gloEnv structEnv store : int * store =
         if abs i > 100000000 then // float
             let bytes = System.BitConverter.GetBytes(int32(i))
             let v = System.BitConverter.ToSingle(bytes, 0)
-            let res = int(round(v))
-            // printf "welllll %d\n" res
+            let res = int(round(v))            
             (res, store1)
         else
             (i, store1)
@@ -371,15 +356,12 @@ and eval e locEnv gloEnv structEnv store : int * store =
         (getSto store1 loc, store1)
     | Assign (acc, e) ->
         let (loc, store1) = access acc locEnv gloEnv structEnv store
-        // let (res, store2) = eval e locEnv gloEnv store1
-        // printf "%d" loc
 
         let (res, store3) = 
             match e with
             | CstS s ->
                 let mutable i = 0;
-                let arrloc = getSto store1 loc  // 数组起始地址
-                // printf "i am arrayloc %d\n" arrloc
+                let arrloc = getSto store1 loc  // 数组起始地址                
                 let mutable store2 = store1;
                 while i < s.Length do
                     store2 <- setSto store2 (arrloc+i) (int (s.Chars(i)))
@@ -520,8 +502,6 @@ and eval e locEnv gloEnv structEnv store : int * store =
                         let v = System.BitConverter.ToSingle(bytes, 0)
                         v.ToString()
                     | 's' ->
-                        // let (slen, exprs2, store2) = oneExpr exprs store1
-                        // printf "%d" slen
                         let (e, exprs2, store2) = getOneExpr exprs store1
                         let (loc, store3) = 
                             match e with
@@ -537,8 +517,7 @@ and eval e locEnv gloEnv structEnv store : int * store =
                         while i < arrloc do
                             // s <- s + char(getSto store2 (arrloc-i)).ToString()
                             s <- char(getSto store2 (arrloc-i-1)).ToString() + s
-                            i <- i+1
-                        // printf "i m s %s\n" s
+                            i <- i+1                        
                         s
                     | _ -> failwith "format mismatch"
 

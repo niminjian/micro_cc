@@ -4,6 +4,6 @@ void main(int n)
   do
   {
     x += 2;
-    printf("%d ", x);
+    print x;
   } while (x < n);
 }
