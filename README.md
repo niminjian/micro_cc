@@ -1,3 +1,5 @@
+
+
 [2021-2022学年第2学期]
 
 # [**实 验 报 告**]
@@ -329,6 +331,352 @@ void main()
 ![ast](./README.assets/ast/6.png)
 
 ![seq](./README.assets/seq/6.png)
+
+
+
+### 4.2.4 break与continue语句
+
+- 测试break和continue的功能
+
+- 测试样例 (BreakAndContinue.c)
+
+  ```
+  void main(int n)
+  {
+    int i;
+    i = 0;
+    while (i < 5)
+    {
+      if (i == 1)
+      {
+        i = i + 1;
+        continue;
+      }
+      print i; // 测试1
+      // break; // 测试2
+  
+      i = i + 1;
+    }
+  }
+  ```
+
+  
+
+### 4.2.5 三目运算符
+
+- 测试三目运算符的功能
+
+- 测试样例 (TernaryOperator.c)
+
+  ```
+  void main(int n)
+  {
+    n == 10 ? print 2 : print 5;
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![8](.\README.assets\8.png)
+
+
+
+### 4.2.6 printf
+
+- 测试样例 (printf.c)
+
+  ```
+  void main(int n)
+  {
+    printf("hello %d", n);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![9](.\README.assets\9.png)
+
+  
+
+### 4.2.7 do-until
+
+- 测试样例 (dountil.c)
+
+  ```
+  void main()
+  {
+    int i = 0;
+    do
+    {
+      print i;
+      i++;
+    }
+    until(i == 10);
+  }
+  ```
+
+  测试结果
+
+  解释
+
+  ![10](.\README.assets\10.png)
+
+
+
+### 4.2.8 String
+
+- 测试样例 (StringTest.c)
+
+  ```
+  void main()
+  {
+    String s;
+    s = "Manchester City";
+    printf("hello %s\n", s);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![11](.\README.assets\11.png)
+
+
+
+## 4.3 语义功能
+
+### 4.3.1 静态作用域
+
+- 作用域：变量是名字与实体的绑定，一段程序代码中所用到的名字并不总是有效的，而限定这个变量名的可用代码范围就是这个名字的作用域。其中分为动态作用域和静态作用域，动态作用域指函数的作用域是在函数被调用时才决定的，而静态作用域则是在编译时就已经决定了。
+
+- 本语言采用静态作用域规则。如下样例，先将全局变量x进行赋值，随后调用 f() ，在函数f中定义局部变量x，并在函数f内部调用 g() ，查看在函数g中打印出的变量x值为函数f中的局部变量值还是全局变量值来判断是静态还是动态。
+
+- 测试样例 (StaticTest.c)
+
+  ```
+  
+  int x;
+  int g()
+  {
+    print x;
+  }
+  
+  int f()
+  {
+    int x = 3;
+    return g();
+  }
+  
+  int main()
+  {
+    x = 10;
+    f();
+  }
+  ```
+
+- 测试结果
+
+  解释（在测试样例中，声明了一个全局变量x，后再函数中重新声明变量，尝试进行修改）
+
+  ![12](.\README.assets\12.png)
+
+
+
+## 4.4 特性功能
+
+### 4.4.1 位运算
+
+- 实现位运算&与， | 或， ^ 异或，~ 取反，<< ，左移，>> 右移
+
+- 测试样例 (Bitwise.c)
+
+  ```
+  void main()
+  {
+    int a;
+    int b;
+    int c;
+    a = 1;
+    b = 0;
+    c = a & b;
+    print c;
+    c = a | b;
+    print c;
+    c = a << 2;
+    print c;
+    c = c >> 1;
+    print c;
+    c = a ^ b;
+    print c;
+    c = ~b;
+    print c;
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![15](.\README.assets\15.png)
+
+
+
+### 4.4.2 逻辑运算
+
+- 实现逻辑运算== 等于，!= 不等于，< 小于，<= 小于等于，> 大于，>= 大于等于，&& 与，|| 或，! 非
+
+- 测试样例 (LogicalOperation.c)
+
+  ```
+  void main(){
+      print (0==4)&&(2!=1);  // 0
+      print (3>6)||(6<10);    // 1
+      print (2>=1)&&(3<=7);   // 1
+      print !(9>4);           // 0
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![16](.\README.assets\16.png)
+
+
+
+### 4.4.3 运算符
+
+- 实现 i++，i--，++i，--i 自增自减运算符
+
+- 测试样例 (Operator.c)
+
+  ```
+  void main(int n) { 
+    print n;
+    print ++n;
+    print --n;
+    print n++;
+    print n--;
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![17](.\README.assets\17.png)
+
+
+
+### 4.4.4 复合赋值运算符
+
+- 测试样例 (CompoundAssignment.c)
+
+  ```
+  void main(int n)
+  {
+    n += 2;
+    print n;
+    n -= 2;
+    print n;
+    n *= 2;
+    print n;
+    n %= 2;
+    print n;
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![18](.\README.assets\18.png)
+
+
+
+### 4.4.5 struct结构
+
+首先，先创建结构体定义表，用来查找，结构体定义表中包含结构体的总体大小，名字，以及变量和偏移量。然后查找结构体变量表，加入该变量到varEnv中，访问成员时，便可以通过.运算符，通过偏移值转化为简单指令集。
+
+- 测试样例 (StructTest.c)
+
+  ```
+  struct test
+  {
+    int x;
+    char c;
+    int a[3];
+  };
+  
+  void main()
+  {
+    struct test t;
+    t.x = 200;
+    t.c = 'a';
+    printf("%d\n", t.x);
+    printf("%c\n", t.c);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![19](.\README.assets\19.png)
+
+
+
+### 4.4.6 数组
+
+- 实现数组 `int[]` ，`char[]`
+
+- 测试样例 (Array.c)
+
+  ```
+  int main(){
+      int i;
+      int a[10];
+      char c[5];
+      c[0] = 'h';
+      c[1] = 'e';
+      c[2] = 'l';
+      c[3] = 'l';
+      c[4] = 'o';
+      for(i = 0; i < 10; ++i){
+          a[i] = i;
+      }
+      for(i = 0; i < 10; ++i){
+          print a[i];
+      }
+      println;
+      for(i = 0; i < 5; ++i){
+          print c[i];
+      }
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![20](.\README.assets\20.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 5.课程心得
 
