@@ -10,6 +10,8 @@ void main()
   struct test t;
   t.x = 200;
   t.c = 'a';
-  printf("%d\n", t.x);
-  printf("%c\n", t.c);
+//  printf("%d\n", t.x);
+//  printf("%c\n", t.c);
+  print t.x;
+  print t.c; 
 }
