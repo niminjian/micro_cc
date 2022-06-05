@@ -301,7 +301,7 @@ void main()
 
 解释器
 
-![5](.\README.assets\5.png)
+![5](.\README.assets\interpreter\5.png)
 
 编译：
 
