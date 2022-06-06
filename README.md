@@ -147,19 +147,27 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 
 解释：
 
-![1](./README.assets/1.png)
-
 ![](./README.assets/interpreter/1.png)
 
 编译：
 
 ![](./README.assets/compile/1.png)
 
-中间过程：（中间过程用优化编译器测试，下同）![ast](./README.assets/ast/1.png)
+
+
+中间过程：（中间过程用优化编译器测试，下同）
+
+查看中间抽象语法树(AST)生成：
+
+![ast](./README.assets/ast/1.png)
+
+优化编译虚拟指令序列：
 
 虚拟指令序列:
 
 ![seq](./README.assets/seq/1.png)	
+
+
 
 ### 4.1.2 标识符定义
 
@@ -223,7 +231,7 @@ void main()
 
 解释
 
-![3](.\README.assets\3.png)
+![3](.\README.assets\interpreter\3.png)
 
 编译：
 
@@ -263,7 +271,7 @@ void main()
 - 测试结果
 
 
-解释器
+解释
 
 ![4](./README.assets/interpreter/4.png)
 
@@ -299,7 +307,7 @@ void main()
 - 测试结果
 
 
-解释器
+解释
 
 ![5](.\README.assets\interpreter\5.png)
 
@@ -337,7 +345,7 @@ void main()
 - 测试结果
 
 
-解释器
+解释
 
 ![6](.\README.assets\interpreter\6.png)
 
@@ -408,7 +416,7 @@ void main()
 
   解释
 
-  ![8](.\README.assets\8.png)
+  ![8](.\README.assets\interpreter\8.png)
 
 编译：
 
@@ -437,7 +445,7 @@ void main()
 
   解释
 
-  ![9](.\README.assets\9.png)
+  ![9](.\README.assets\interpreter\9.png)
 
   编译：
   
@@ -472,7 +480,7 @@ void main()
 
   解释
 
-  ![10](.\README.assets\10.png)
+  ![10](.\README.assets\interpreter\10.png)
 
 编译：
 
@@ -503,7 +511,7 @@ void main()
 
   解释
 
-  ![11](.\README.assets\11.png)
+  ![11](.\README.assets\interpreter\11.png)
 
 编译：
 
@@ -552,7 +560,7 @@ void main()
 
   解释（在测试样例中，声明了一个全局变量x，后再函数中重新声明变量，尝试进行修改）
 
-  ![12](.\README.assets\12.png)
+  ![12](.\README.assets\interpreter\12.png)
 
 编译：
 
@@ -601,7 +609,7 @@ void main()
 
   解释
 
-  ![15](.\README.assets\15.png)
+  ![15](.\README.assets\interpreter\15.png)
 
 编译：
 
@@ -634,7 +642,7 @@ void main()
 
   解释
 
-  ![16](.\README.assets\16.png)
+  ![16](.\README.assets\interpreter\16.png)
 
 编译：
 
@@ -668,7 +676,7 @@ void main()
 
   解释
 
-  ![17](.\README.assets\17.png)
+  ![17](.\README.assets\interpreter\17.png)
 
 编译：
 
@@ -704,7 +712,7 @@ void main()
 
   解释
 
-  ![18](.\README.assets\18.png)
+  ![18](.\README.assets\interpreter\18.png)
 
 编译：
 
@@ -746,7 +754,7 @@ void main()
 
   解释
 
-  ![19](.\README.assets\19.png)
+  ![19](.\README.assets\interpreter\19.png)
 
 编译：
 
@@ -793,7 +801,7 @@ void main()
 
   解释
 
-  ![20](.\README.assets\20.png)
+  ![20](.\README.assets\interpreter\20.png)
 
 编译：
 
@@ -809,15 +817,188 @@ void main()
 
 
 
+### 4.4.7 自定义函数
+
+- 模仿自定义函数的过程实现
+
+- 测试样例 (SelfDefinitionFunc.c)
+
+  ```
+  void myFunc(int i)
+  {
+    print i * 10;
+  }
+  
+  int main(int n)
+  {
+    myFunc(n);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![21](.\README.assets\interpreter\21.png)
+
+
+
+### 4.4.8 基本类型实现
+
+- 实现变量类型 `int` 整数，`float` 浮点数，`char` 字符， `bool` 布尔	
+
+- 测试样例 (PrimitiveType.c)
+
+  ```
+  void main()
+  {
+    // 整型
+    int x = 5;
+    printf("%d ", x);
+  
+    // 浮点数型
+    float f;
+    f = 1.2;
+    printf("%f ", f);
+  
+    // char型
+    char c = '$';
+    printf("%c ", c);
+  
+    // bool型
+    bool y = true;
+    printf("%d ", y);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![22](.\README.assets\interpreter\22.png)
+
+
+
+### 4.4.9 基本数学函数实现
+
+- 实现`Max Min Abs` 等基本数学函数
+
+- 测试样例 (ElementaryMathFunc.c)
+
+  ```
+  void main(int x, int y)
+  {
+    print Max(x, y);
+    print Min(x, y);
+    print Abs(x);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![23](.\README.assets\interpreter\23.png)
+
+
+
+### 4.4.10 try-catch异常捕获实现
+
+- 实现/0的异常捕获
+
+- 测试样例(try_catch.c)
+
+  ```
+  int main()
+  {
+    try
+    {
+      int a = 0;
+      int n = 5;
+      n = n / a;
+    }
+    catch ("ArithmeticalExcption")
+    {
+      n = 0;
+      print n;
+    }
+  }
+  ```
+
+- 测试结果
+
+  编译
+
+  
+
+### 4.10.11 强制类型转换
+
+- int(x)、char(x)等基本强制类型转换功能的实现
+
+- 测试样例(TypeCasting.c)
+
+  ```
+  void main(int x, char y)
+  {
+    printf("%d ", x);
+    printf("%c ", (char)x);
+    printf("%c ", y);
+    printf("%d", (int)y);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![24](.\README.assets\interpreter\24.png)
+
+
+
+### 4.10.12 return静态作用域
+
+- 测试样例(ReturnStatic.c)
+
+  ```
+  int x;
+  int f(int y)
+  {
+    int x = y + 1;
+    return x;
+  }
+  
+  void main()
+  {
+    print f(3);
+  }
+  ```
+
+- 测试结果
+
+  解释
+
+  ![25](.\README.assets\interpreter\25.png)
+
+
+
+# 5.课程心得
+
 # 5.课程心得
 
 + 许周毅：
+  
+  许周毅：
+  
   + 心得：本学期的课程任务繁重，而编译原理又是一门比较硬核的科目，在课程的学习上难免遇到了较多的困难，在课堂上未能很好的掌握，在课后还要投入大量的时间，同时还要学习F#这一个相对于C、JAVA来说比较冷门的语言，网上能够查到的参考学习资料也比较少，大作业的实现在起初更是可以说是压力山大、无从下手。好在还是有一些开源的项目能够供我们学习借鉴，虽然过程很艰辛，但还是在开源项目的帮助下，完成了大作业。而在课程的学习中，我了解了函数式编程，对计算机也有了更深入的理解。
   + 评价：课程的难度偏高，所需投入的时间较多；虽然给了许多参考资料，但有些抓不到重点。
 
++ 倪敏建：
 
+  + 心得：拿到大作业要求的时候，心里是崩溃的。或许是对深挖底层原理的畏惧，从开学初就感觉编译原理这门课难度很大，在课程学习上遇到了很大的阻碍。一是因为这完全是一套全新的体系，与之前所学课程个人感觉没有很好的接轨，在这之前缺少了相关的知识储备；二是因为课程需要用到一门全新的语言F#，它作为一门函数式编程语言，与我们之前常用的C++、Java等面向对象的语言由很大的区别，而且资料非常少。但所幸老师给了许多资料，我们的大作业项目也是在研读这些资料的基础上一步步构建起来的。从自增、自减入门，一步步进行构建功能的完善；一遍遍地研读commits记录，抽取出实现过程。我们一个一个小功能的添加，及时调试，这个过程是十分痛苦的，但收获颇多。让我们对编译器、解释器有了更深刻的理解，逐渐与先前所学知识串联起来了。
 
+  + 评价：这门课程的难度很高，知识点繁杂且串联度不高，这需要我们在课后花大量时间去理解、去记忆。同时，在真正着手大作业之前，缺少相关实验支撑。
 
+    
 
 # 6.附录
 
