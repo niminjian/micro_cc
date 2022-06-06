@@ -192,7 +192,7 @@ void main()
 
 解释
 
-![2](.\README.assets\interpreter\2.png)
+![2](./README.assets/interpreter/2.png)
 
 编译：
 
@@ -231,7 +231,7 @@ void main()
 
 解释
 
-![3](.\README.assets\interpreter\3.png)
+![3](./README.assets/interpreter/3.png)
 
 编译：
 
@@ -309,7 +309,7 @@ void main()
 
 解释
 
-![5](.\README.assets\interpreter\5.png)
+![5](./README.assets/interpreter/5.png)
 
 编译：
 
@@ -347,7 +347,7 @@ void main()
 
 解释
 
-![6](.\README.assets\interpreter\6.png)
+![6](./README.assets/interpreter/6.png)
 
 编译：
 
@@ -416,7 +416,7 @@ void main()
 
   解释
 
-  ![8](.\README.assets\interpreter\8.png)
+  ![8](./README.assets/interpreter/8.png)
 
 编译：
 
@@ -445,7 +445,7 @@ void main()
 
   解释
 
-  ![9](.\README.assets\interpreter\9.png)
+  ![9](./README.assets/interpreter/9.png)
 
   编译：
   
@@ -480,7 +480,7 @@ void main()
 
   解释
 
-  ![10](.\README.assets\interpreter\10.png)
+  ![10](./README.assets/interpreter/10.png)
 
 编译：
 
@@ -511,7 +511,7 @@ void main()
 
   解释
 
-  ![11](.\README.assets\interpreter\11.png)
+  ![11](./README.assets/interpreter/11.png)
 
 编译：
 
@@ -560,7 +560,7 @@ void main()
 
   解释（在测试样例中，声明了一个全局变量x，后再函数中重新声明变量，尝试进行修改）
 
-  ![12](.\README.assets\interpreter\12.png)
+  ![12](./README.assets/interpreter/12.png)
 
 编译：
 
