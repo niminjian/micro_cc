@@ -456,30 +456,6 @@ int execcode(int p[], int s[], int iargs[], int iargc, int /* boolean */ trace)
           s[sp] = -s[sp];
           break;
 	  case PRINTF:
-          // FLAOT_UNION funion;
-          // for(m=0; m<4; m++)//int转byte
-          // {
-          //     temp[m+1]=(s[sp]>>(24-m*8));
-          // }
-          // printf("%d ", temp[0]);
-          // funion.low_byte = temp[0];
-          // printf("%d ", temp[1]);
-          // funion.mlow_byte = temp[1];
-          // printf("%d ", temp[2]);
-          // funion.mhigh_byte = temp[2];
-          // printf("%d\n", temp[3]);
-          // funion.high_byte = temp[3];
-          // printf("%d\n", s[sp]);
-
-          // // byte 2 float
-          // px = (unsigned char *)temp;
-          // for(m=0;m<4;m++)
-          // {
-          //   *((unsigned char *)pf+m)=*(px+m+1);
-          // }
-
-          // printf("%f ", &funion.float);
-          // // printf("%f ", (float)s[sp]);
           printf("%f", (float *)(s[sp]));
           break;
     default:
