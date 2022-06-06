@@ -60,10 +60,10 @@ framework 'Microsoft.NETCore.App', version '5.0.0' (x64)
 ```shell
 #microc-->microcc
 dotnet restore  microcc.fsproj
-dotnet clean  microcc.fsproj
+dotnet clean  microcc.fsproj #！如果有异常结果出现，先考虑清除项目输出
 dotnet build  microcc.fsproj
 
-dotnet run --project microcc.fsproj .\example\xxx.c   # 编译 xxx表示输入的数据
+dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表示输入的数据
 .\machine.exe .\example\xxx.out xxx(可选)  # 执行（通过虚拟机执行）
 ```
 
