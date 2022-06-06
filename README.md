@@ -91,16 +91,6 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 -- #q;;
 ```
 
-![](./README.assets/compile/.png)
-
-中间过程：
-
-![ast](./README.assets/ast/.png)
-
-虚拟指令序列：
-
-![seq](./README.assets/seq/.png)
-
 # 3.结构设计
 
 前端：由`F#`语言编写而成  
@@ -877,7 +867,17 @@ void main()
 
   ![22](.\README.assets\interpreter\22.png)
 
+编译：
 
+![](./README.assets/compile/.png)
+
+中间过程：
+
+![ast](./README.assets/ast/.png)
+
+虚拟指令序列：
+
+![seq](./README.assets/seq/.png)
 
 ### 4.4.9 基本数学函数实现
 
@@ -900,7 +900,17 @@ void main()
 
   ![23](.\README.assets\interpreter\23.png)
 
+编译：
 
+![](./README.assets/compile/.png)
+
+中间过程：
+
+![ast](./README.assets/ast/.png)
+
+虚拟指令序列：
+
+![seq](./README.assets/seq/.png)
 
 ### 4.4.10 try-catch异常捕获实现
 
@@ -927,8 +937,18 @@ void main()
 
 - 测试结果
 
-  编译
+  编译：
 
+  ![](./README.assets/compile/.png)
+  
+  中间过程：
+  
+  ![ast](./README.assets/ast/.png)
+  
+  虚拟指令序列：
+  
+  ![seq](./README.assets/seq/.png)
+  
   
 
 ### 4.10.11 强制类型转换
@@ -953,7 +973,17 @@ void main()
 
   ![24](.\README.assets\interpreter\24.png)
 
+编译：
 
+![](./README.assets/compile/.png)
+
+中间过程：
+
+![ast](./README.assets/ast/.png)
+
+虚拟指令序列：
+
+![seq](./README.assets/seq/.png)
 
 ### 4.10.12 return静态作用域
 
@@ -979,19 +1009,27 @@ void main()
 
   ![25](.\README.assets\interpreter\25.png)
 
+编译：
+
+![](./README.assets/compile/.png)
+
+中间过程：
+
+![ast](./README.assets/ast/.png)
+
+虚拟指令序列：
+
+![seq](./README.assets/seq/.png)
 
 
-# 5.课程心得
 
 # 5.课程心得
 
 + 许周毅：
   
-  许周毅：
-  
   + 心得：本学期的课程任务繁重，而编译原理又是一门比较硬核的科目，在课程的学习上难免遇到了较多的困难，在课堂上未能很好的掌握，在课后还要投入大量的时间，同时还要学习F#这一个相对于C、JAVA来说比较冷门的语言，网上能够查到的参考学习资料也比较少，大作业的实现在起初更是可以说是压力山大、无从下手。好在还是有一些开源的项目能够供我们学习借鉴，虽然过程很艰辛，但还是在开源项目的帮助下，完成了大作业。而在课程的学习中，我了解了函数式编程，对计算机也有了更深入的理解。
   + 评价：课程的难度偏高，所需投入的时间较多；虽然给了许多参考资料，但有些抓不到重点。
-
+  
 + 倪敏建：
 
   + 心得：拿到大作业要求的时候，心里是崩溃的。或许是对深挖底层原理的畏惧，从开学初就感觉编译原理这门课难度很大，在课程学习上遇到了很大的阻碍。一是因为这完全是一套全新的体系，与之前所学课程个人感觉没有很好的接轨，在这之前缺少了相关的知识储备；二是因为课程需要用到一门全新的语言F#，它作为一门函数式编程语言，与我们之前常用的C++、Java等面向对象的语言由很大的区别，而且资料非常少。但所幸老师给了许多资料，我们的大作业项目也是在研读这些资料的基础上一步步构建起来的。从自增、自减入门，一步步进行构建功能的完善；一遍遍地研读commits记录，抽取出实现过程。我们一个一个小功能的添加，及时调试，这个过程是十分痛苦的，但收获颇多。让我们对编译器、解释器有了更深刻的理解，逐渐与先前所学知识串联起来了。
