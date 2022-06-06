@@ -63,8 +63,8 @@ dotnet restore  microcc.fsproj
 dotnet clean  microcc.fsproj
 dotnet build  microcc.fsproj
 
-dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表示输入的数据，下同
-.\machine.exe .\example\xxx.out xxx  # 执行（通过虚拟机执行）
+dotnet run --project microcc.fsproj .\example\xxx.c   # 编译 xxx表示输入的数据
+.\machine.exe .\example\xxx.out xxx(可选)  # 执行（通过虚拟机执行）
 ```
 
 ## 中间过程
@@ -85,7 +85,7 @@ dotnet run --project microcc.fsproj .\example\xxx.c xxx(可选)  # 编译 xxx表
 -- #load "Absyn.fs"  "CPar.fs" "CLex.fs" "Debug.fs" "Parse.fs" "Machine.fs" "Backend.fs" "Contcomp.fs" "ParseAndContcomp.fs";;
 -- open ParseAndContcomp;;
 #-----查看中间AST生成-----（抽象语法树）
--- fromFile "example\xxx.c" 
+-- fromFile "example\xxx.c";; 
 #优化编译虚拟指令序列
 -- contCompileToFile (fromFile "example\xxx.c") "xxx.out";;
 -- #q;;
@@ -832,7 +832,17 @@ void main()
 
   ![21](./README.assets/interpreter/21.png)
 
+编译：
 
+![](./README.assets/compile/19.png)
+
+中间过程：
+
+![ast](./README.assets/ast/19.png)
+
+虚拟指令序列：
+
+![seq](./README.assets/seq/19.png)
 
 ### 4.4.8 基本类型实现
 
@@ -870,15 +880,15 @@ void main()
 
 编译：
 
-![](./README.assets/compile/.png)
+![](./README.assets/compile/20.png)
 
 中间过程：
 
-![ast](./README.assets/ast/.png)
+![ast](./README.assets/ast/20.png)
 
 虚拟指令序列：
 
-![seq](./README.assets/seq/.png)
+![seq](./README.assets/seq/20.png)
 
 ### 4.4.9 基本数学函数实现
 
@@ -903,21 +913,21 @@ void main()
 
 编译：
 
-![](./README.assets/compile/.png)
+![](./README.assets/compile/21.png)
 
 中间过程：
 
-![ast](./README.assets/ast/.png)
+![ast](./README.assets/ast/21.png)
 
 虚拟指令序列：
 
-![seq](./README.assets/seq/.png)
+![seq](./README.assets/seq/21.png)
 
 ### 4.4.10 try-catch异常捕获实现
 
 - 实现/0的异常捕获
 
-- 测试样例(try_catch.c)
+- 测试样例(Try_catch.c)
 
   ```
   int main()
@@ -940,15 +950,15 @@ void main()
 
   编译：
 
-  ![](./README.assets/compile/.png)
+  ![](./README.assets/compile/22.png)
   
   中间过程：
   
-  ![ast](./README.assets/ast/.png)
+  ![ast](./README.assets/ast/22.png)
   
   虚拟指令序列：
   
-  ![seq](./README.assets/seq/.png)
+  ![seq](./README.assets/seq/22.png)
   
   
 
@@ -976,15 +986,15 @@ void main()
 
 编译：
 
-![](./README.assets/compile/.png)
+![](./README.assets/compile/23.png)
 
 中间过程：
 
-![ast](./README.assets/ast/.png)
+![ast](./README.assets/ast/23.png)
 
 虚拟指令序列：
 
-![seq](./README.assets/seq/.png)
+![seq](./README.assets/seq/23.png)
 
 ### 4.10.12 return静态作用域
 
@@ -1012,15 +1022,15 @@ void main()
 
 编译：
 
-![](./README.assets/compile/.png)
+![](./README.assets/compile/24.png)
 
 中间过程：
 
-![ast](./README.assets/ast/.png)
+![ast](./README.assets/ast/24.png)
 
 虚拟指令序列：
 
-![seq](./README.assets/seq/.png)
+![seq](./README.assets/seq/24.png)
 
 
 
@@ -1083,9 +1093,9 @@ void main()
 |      struct结构       |     🟢      |     🟢      |     🟢      |       5️⃣       |      StructTest.c      |
 |         数组          |     🟢      |     🟢      |     🟢      |       5️⃣       |        Array.c         |
 |      自定义函数       |     🟢      |     🟢      |     🟢      |       5️⃣       |  SelfDefinitionFunc.c  |
-|     基本类型实现      |     🟢      |     🟢      |     🟢      |       5️⃣       |    PrimitiveType.c     |
+|     基本类型实现      |     🟢      |            |            |       3️⃣       |    PrimitiveType.c     |
 |   基本数学函数实现    |     🟢      |     🟢      |     🟢      |       5️⃣       |  ElementaryMathFunc.c  |
-| try-catch异常捕获实现 |            |     🟢      |     🟢      |       3️⃣       |      try_catch.c       |
+| try-catch异常捕获实现 |            |     🟢      |     🟢      |       4️⃣       |      try_catch.c       |
 |     强制类型转换      |     🟢      |            |            |       3️⃣       |     TypeCasting.c      |
 |   return静态作用域    |     🟢      |     🟢      |     🟢      |       5️⃣       |     ReturnStatic.c     |
 |                       |            |            |            |               |                        |
